@@ -1,6 +1,6 @@
 # study_javaSE_day01
 # 1.自动类型转换和强制类型转换
-AutoTypeConversion.java
+AutoTypeConversion.java \n
 自动类型转换
 小容量转大容量  boolean 不在里面 容量是指数的取值范围
 byte 转 short 
@@ -21,4 +21,4 @@ System.out.println(b1); // 结果为-128
 // 因为转换之后 b1 的二进制位是 1000 0000 这种数比较特殊
 // 表示负的最小值 -128
 
-#2.
+# 2.
