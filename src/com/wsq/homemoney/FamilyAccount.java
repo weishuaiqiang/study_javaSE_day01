@@ -28,7 +28,7 @@ public class FamilyAccount {
             System.out.println("                    2 登记收入                    ");
             System.out.println("                    3 登记支出                    ");
             System.out.println("                    4 退   出                    ");
-            System.out.println("                    请选择<1-4>：                    ");
+            System.out.print("                    请选择<1-4>：");
             int num = scanner.nextInt();
             switch (num){
                 case 1:
