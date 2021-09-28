@@ -44,32 +44,18 @@ public class FamilyAccount {
                     }
                     break;
                 case 2:
-                    System.out.print("本次收入金额：");
-                    double inMoney = scanner.nextDouble();
-                    scanner.nextLine();
-                    System.out.print("本次收入说明：");
-                    String inTip = scanner.nextLine();
-                    String in = "收入";
-                    if(arrayList.size() == 0){
-                        arrayList.add(new Utility(in, inMoney, inMoney, inTip));
-                    } else {
-                        Utility utility = arrayList.get(arrayList.size()-1);
-                        arrayList.add(new Utility(in, utility.getAllMoney() + inMoney, inMoney, inTip));
-                    }
-                    System.out.println("----------------------登记成功----------------------");
-                    break;
                 case 3:
-                    System.out.print("本次支出金额：");
-                    double outMoney = scanner.nextDouble();
+                    String inOut = (num == 2)?"收入":"支出";
+                    System.out.print("本次" + inOut + "金额：");
+                    double money = scanner.nextDouble() * ((num == 2)?1:(-1));
                     scanner.nextLine();
-                    System.out.print("本次支出说明：");
-                    String outTip = scanner.nextLine();
-                    String out = "支出";
+                    System.out.print("本次" + inOut + "说明：");
+                    String tip = scanner.nextLine();
                     if(arrayList.size() == 0){
-                        arrayList.add(new Utility(out, outMoney, outMoney, outTip));
+                        arrayList.add(new Utility(inOut, money, Math.abs(money), tip));
                     } else {
                         Utility utility = arrayList.get(arrayList.size()-1);
-                        arrayList.add(new Utility(out, utility.getAllMoney() - outMoney, outMoney, outTip));
+                        arrayList.add(new Utility(inOut, utility.getAllMoney() + money, Math.abs(money), tip));
                     }
                     System.out.println("----------------------登记成功----------------------");
                     break;
