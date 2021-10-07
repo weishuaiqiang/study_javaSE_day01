@@ -112,7 +112,7 @@ public class ArrayTest {
      */
     public static void bubbleSort(int[] arr){
         for (int i = 0; i < arr.length; i++){
-            for (int j = i; j < arr.length - 1; j++){
+            for (int j = 0; j < arr.length - i - 1; j++){
                 if (arr[j] > arr[j+1]){
                     int temp = arr[j];
                     arr[j] = arr[j+1];
@@ -124,6 +124,40 @@ public class ArrayTest {
             System.out.print(anInt + "\t");
         }
     }
+
+    /**
+     * 快速排序（quick sort）
+     * 假定题目要求从小到大排序
+     * 需要用到另外的一个方法：getIndex(int[] arr, int low, int high)
+     * 用来找寻基准数据的正确索引
+     * @param arr
+     */
+    public static void quickSort(int[] arr, int low, int high){
+        if(low < high){
+            int index = getIndex(arr, low, high);
+
+            quickSort(arr, low, index - 1);
+            quickSort(arr, index + 1, high);
+        }
+    }
+
+    public static int getIndex(int[] arr, int low, int high){
+        int temp = arr[low];
+        while (low != high){
+            while (low < high && arr[high] >= temp){
+                high--;
+            }
+            arr[low] = arr[high];
+            while (low < high && arr[low] <= temp){
+                low++;
+            }
+            arr[high] = arr[low];
+        }
+        arr[low] = temp;
+        return low;
+    }
+
+
 
 
 
@@ -156,9 +190,15 @@ public class ArrayTest {
         arrayBinarySearch(arr2, 105);
         */
 
-        /* 冒泡排序 */
+        /* 交换排序
         int[] arr = new int[]{3, 1, -1, 5, 99, -23, 78};
+        // 冒泡排序
         bubbleSort(arr);
-
+        // 快速排序
+        quickSort(arr, 0, arr.length - 1);
+        for (int anInt : arr){
+            System.out.print(anInt + "\t");
+        }
+        */
     }
 }
